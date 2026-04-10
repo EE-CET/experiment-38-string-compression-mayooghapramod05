@@ -4,7 +4,6 @@ public class StringCompression {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        // Remove the prompt message for the autograder
         if (scanner.hasNextLine()) {
             String input = scanner.nextLine();
             System.out.println(compress(input));
@@ -31,6 +30,8 @@ public class StringCompression {
             }
         }
 
-        return compressed.length() < str.length() ? compressed.toString() : str;
+        // Change: Use <= so that if lengths are equal (like aabb vs a2b2), 
+        // it returns the compressed version.
+        return compressed.length() <= str.length() ? compressed.toString() : str;
     }
 }
